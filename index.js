@@ -1,8 +1,11 @@
 const connectToMonto = require("./db");
 const express = require("express");
+var cors = require('cors')
 connectToMonto();
 
 const app = express();
+
+app.use(cors())
 const port = 5000;
 app.use(express.json());
 
@@ -13,7 +16,7 @@ app.get("/", (req, res) => {
 //available routes
 
 app.use("/api/auth", require("./routes/auth"));
-// app.use('/api/notes', require('./routes/notes'))
+app.use('/api/notes', require('./routes/notes'))
 
 // don't do like that{
 // app.get('/login', (req, res) => {
@@ -25,5 +28,5 @@ app.use("/api/auth", require("./routes/auth"));
 // }
 // const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`Example app listening on port http://localhost:${port}`);
+  console.log(`iNotebook App listening on port http://localhost:${port}`);
 });
