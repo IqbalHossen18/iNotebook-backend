@@ -15,9 +15,13 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
+  // date: {
+  //   type: Date,
+  //   default: Date.toLocaleString(),
+  // },
   date: {
-    type: Date,
-    default: Date.now,
+    type: Date, // Store it as a string, not a Date object
+    default: Date.toDateString, // Use the formatted date as the default value
   },
 });
 
