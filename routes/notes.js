@@ -38,7 +38,7 @@ router.post(
         user: req.user.id,
       });
       const savenote = await note.save();
-      res.json(note);
+      res.json(savenote);
     } catch (error) {
       console.error(error);
       res.status(500).send("Internal Server Error");
